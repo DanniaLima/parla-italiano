@@ -4,9 +4,11 @@ import { BottomNav, type Tab } from './components/BottomNav';
 import { LearningPath } from './components/LearningPath';
 import { LessonView } from './components/LessonView';
 import { ConversationSimulator } from './components/ConversationSimulator';
+import { AchievementsScreen } from './components/AchievementsScreen';
 import { HomeScreen } from './components/HomeScreen';
 import { lessons } from './data/lessons';
 import { scenarios } from './data/scenarios';
+import { achievements } from './data/achievements';
 import { useProgress } from './hooks/useProgress';
 import type { Lesson } from './types';
 
@@ -14,6 +16,8 @@ export default function App() {
   const [tab, setTab] = useState<Tab>('home');
   const [activeLesson, setActiveLesson] = useState<Lesson | null>(null);
   const { progress, completeLesson, completeScenario } = useProgress();
+
+  const unlockedCount = achievements.filter((a) => a.check(progress)).length;
 
   if (activeLesson) {
     return (
@@ -34,6 +38,8 @@ export default function App() {
           progress={progress}
           lessons={lessons}
           completedScenariosCount={progress.completedScenarios.length}
+          unlockedAchievements={unlockedCount}
+          totalAchievements={achievements.length}
           onStartLearning={() => setTab('learn')}
           onStartChat={() => setTab('chat')}
           onTabChange={setTab}
@@ -59,6 +65,13 @@ export default function App() {
             completedScenarios={progress.completedScenarios}
             onComplete={completeScenario}
           />
+          <BottomNav active={tab} onChange={setTab} />
+        </div>
+      )}
+
+      {tab === 'achievements' && (
+        <div className="pb-24">
+          <AchievementsScreen progress={progress} />
           <BottomNav active={tab} onChange={setTab} />
         </div>
       )}

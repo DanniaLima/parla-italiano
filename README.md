@@ -14,10 +14,12 @@ Parla! é um aplicativo web moderno e responsivo focado em ensinar italiano para
 - Estatísticas de progresso e dica do dia
 
 ### 📚 Trilha de Aprendizado
-- 3 módulos visuais dispostos em trilha:
+- 5 módulos visuais dispostos em trilha:
   - 👋 **Cumprimentos e Apresentações**
   - 🍝 **No Restaurante**
   - 🧭 **Pedindo Direções**
+  - 🛍️ **Fazendo Compras**
+  - 👨‍👩‍👧‍👦 **Família e Amigos**
 - Módulos desbloqueados em sequência, com indicador de conclusão
 
 ### 🎯 Tela de Lição Interativa
@@ -29,12 +31,29 @@ Cada lição possui 4 fases:
 4. **Exercício de fala** — usa o SpeechRecognition do navegador: o aluno toca no microfone, repete a frase e recebe feedback visual se acertou
 
 ### 💬 Simulador de Conversação
-- Cenários prontos de diálogo:
+- 4 cenários prontos de diálogo:
   - ☕ **Pedindo um café em Roma**
   - 🗺️ **Pedindo informações em Florença**
+  - 👗 **Comprando roupas em Milão**
+  - 🚆 **Comprando bilhete na estação**
 - Chat com personagem que fala em italiano, com tradução e botão de áudio
 - O usuário escolhe entre 3 opções de resposta para continuar o diálogo
 - Feedback imediato quando a resposta não é a ideal
+
+### 🏆 Sistema de Conquistas
+- 10 medalhas desbloqueáveis baseadas em progresso:
+  - 🎯 **Primo Passo** — primeira lição concluída
+  - 📚 **Studente Dedito** — 3 lições concluídas
+  - 🏆 **Maestro Italiano** — todas as lições concluídas
+  - 💬 **Prima Conversazione** — primeira conversa concluída
+  - 🗣️ **Chiacchierone** — 3 conversas concluídas
+  - 🔥 **Costanza** — ofensiva de 3 dias
+  - ⚡ **Settimana di Fuoco** — ofensiva de 7 dias
+  - ⭐ **Centenario** — 100 XP acumulados
+  - 🌟 **Esperto** — 300 XP acumulados
+  - 👑 **Campione** — 500 XP acumulados
+- Tela dedicada com medalhas desbloqueadas e bloqueadas
+- Barra de progresso de conquistas na tela inicial
 
 ---
 
@@ -112,13 +131,15 @@ npm run typecheck  # Verifica os tipos do TypeScript
 ```
 src/
 ├── components/
-│   ├── BottomNav.tsx           # Navegação inferior (Início, Lições, Conversa)
+│   ├── AchievementsScreen.tsx  # Tela de conquistas e medalhas
+│   ├── BottomNav.tsx           # Navegação inferior (Início, Lições, Conversa, Medalhas)
 │   ├── ConversationSimulator.tsx  # Simulador de conversação
 │   ├── HomeScreen.tsx          # Tela inicial com estatísticas
 │   ├── LearningPath.tsx        # Trilha visual de módulos
 │   ├── LessonView.tsx          # Tela de lição (flashcards, quiz, fala)
 │   └── TopBar.tsx              # Barra superior (ofensiva, XP, nível)
 ├── data/
+│   ├── achievements.ts         # Definição das medalhas e conquistas
 │   ├── lessons.ts              # Conteúdo das lições (frases, quiz)
 │   └── scenarios.ts            # Cenários de conversação
 ├── hooks/
@@ -133,11 +154,9 @@ src/
 
 ## 🎯 Roadmap (ideias futuras)
 
-- [ ] Mais módulos e lições (viagens, compras, família)
-- [ ] Sistema de conquistas e medalhas
 - [ ] Modo escuro
 - [ ] Sincronização de progresso entre dispositivos
-- [ ] Novos cenários de conversação
+- [ ] Mais módulos e cenários (viagens de trem, no hotel, no mercado)
 
 ---
 

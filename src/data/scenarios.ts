@@ -204,4 +204,230 @@ export const scenarios: ConversationScenario[] = [
       },
     ],
   },
+  {
+    id: 'shopping-milan',
+    title: 'Comprando roupas em Milão',
+    emoji: '👗',
+    description: 'Você está numa boutique em Milão. Encontre a peça certa e negocie!',
+    steps: [
+      {
+        id: 's1',
+        npcMessage: 'Buongiorno! Posso aiutarla?',
+        npcTranslation: 'Bom dia! Posso ajudá-la?',
+        options: [
+          {
+            id: 'o1',
+            text: 'Sì, cerco una maglietta.',
+            translation: 'Sim, procuro uma camiseta.',
+            isCorrect: true,
+          },
+          {
+            id: 'o2',
+            text: 'No, grazie. Solo guardo.',
+            translation: 'Não, obrigado. Só estou olhando.',
+            isCorrect: true,
+          },
+          {
+            id: 'o3',
+            text: 'Buongiorno! Come stai?',
+            translation: 'Bom dia! Como você está?',
+            isCorrect: false,
+            feedback: 'Você perguntou como ele está, mas não respondeu à oferta de ajuda.',
+          },
+        ],
+      },
+      {
+        id: 's2',
+        npcMessage: 'Abbiamo questa maglietta blu. Le piace?',
+        npcTranslation: 'Temos esta camiseta azul. O senhor(a) gosta?',
+        options: [
+          {
+            id: 'o1',
+            text: 'Sì, mi piace molto! Quanto costa?',
+            translation: 'Sim, gosto muito! Quanto custa?',
+            isCorrect: true,
+          },
+          {
+            id: 'o2',
+            text: 'No, è brutta.',
+            translation: 'Não, é feia.',
+            isCorrect: false,
+            feedback: 'Meio rude... tente ser mais educado.',
+          },
+          {
+            id: 'o3',
+            text: 'Non lo so.',
+            translation: 'Não sei.',
+            isCorrect: false,
+            feedback: 'Dê alguma opinião sobre a peça.',
+          },
+        ],
+      },
+      {
+        id: 's3',
+        npcMessage: 'Costa trenta euro. Vuole provarla?',
+        npcTranslation: 'Custa trinta euros. Quer experimentar?',
+        options: [
+          {
+            id: 'o1',
+            text: 'Sì, posso provare una taglia media?',
+            translation: 'Sim, posso experimentar um tamanho médio?',
+            isCorrect: true,
+          },
+          {
+            id: 'o2',
+            text: 'È troppo caro!',
+            translation: 'É muito caro!',
+            isCorrect: true,
+          },
+          {
+            id: 'o3',
+            text: 'Ciao!',
+            translation: 'Tchau!',
+            isCorrect: false,
+            feedback: 'Você não respondeu à pergunta do vendedor.',
+          },
+        ],
+      },
+      {
+        id: 's4',
+        npcMessage: 'Perfetto! La prendo? Vuole pagare con la carta?',
+        npcTranslation: 'Perfeito! Vai levar? Quer pagar com cartão?',
+        options: [
+          {
+            id: 'o1',
+            text: 'Sì, lo prendo. Pago con la carta, grazie!',
+            translation: 'Sim, vou levar. Pago com cartão, obrigado!',
+            isCorrect: true,
+          },
+          {
+            id: 'o2',
+            text: 'No, non lo prendo.',
+            translation: 'Não, não vou levar.',
+            isCorrect: true,
+          },
+          {
+            id: 'o3',
+            text: 'Dov\'è il bagno?',
+            translation: 'Onde fica o banheiro?',
+            isCorrect: false,
+            feedback: 'Não é hora de procurar banheiro, decida sobre a compra!',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'train-station',
+    title: 'Comprando bilhete na estação',
+    emoji: '🚆',
+    description: 'Você está na estação de trem em Roma. Compre seu bilhete para Veneza!',
+    steps: [
+      {
+        id: 's1',
+        npcMessage: 'Buongiorno! Dove vuole andare?',
+        npcTranslation: 'Bom dia! Para onde o senhor(a) quer ir?',
+        options: [
+          {
+            id: 'o1',
+            text: 'Vorrei un biglietto per Venezia, per favore.',
+            translation: 'Gostaria de um bilhete para Veneza, por favor.',
+            isCorrect: true,
+          },
+          {
+            id: 'o2',
+            text: 'Non lo so.',
+            translation: 'Não sei.',
+            isCorrect: false,
+            feedback: 'Você precisa dizer para onde quer ir!',
+          },
+          {
+            id: 'o3',
+            text: 'Quanto costa il caffè?',
+            translation: 'Quanto custa o café?',
+            isCorrect: false,
+            feedback: 'Você está na estação de trem, não no café.',
+          },
+        ],
+      },
+      {
+        id: 's2',
+        npcMessage: 'Andata e ritorno? Quando vuole partire?',
+        npcTranslation: 'Ida e volta? Quando quer partir?',
+        options: [
+          {
+            id: 'o1',
+            text: 'Solo andata. Voglio partire oggi.',
+            translation: 'Só ida. Quero partir hoje.',
+            isCorrect: true,
+          },
+          {
+            id: 'o2',
+            text: 'Andata e ritorno. Domani mattina.',
+            translation: 'Ida e volta. Amanhã de manhã.',
+            isCorrect: true,
+          },
+          {
+            id: 'o3',
+            text: 'Sì, grazie.',
+            translation: 'Sim, obrigado.',
+            isCorrect: false,
+            feedback: 'O atendente precisa saber se é ida e volta e quando.',
+          },
+        ],
+      },
+      {
+        id: 's3',
+        npcMessage: 'Il treno parte alle dieci. Binario tre. Sono venticinque euro.',
+        npcTranslation: 'O trem parte às dez. Plataforma três. São vinte e cinco euros.',
+        options: [
+          {
+            id: 'o1',
+            text: 'Perfetto! Ecco i soldi. Grazie!',
+            translation: 'Perfeito! Aqui está o dinheiro. Obrigado!',
+            isCorrect: true,
+          },
+          {
+            id: 'o2',
+            text: 'Posso pagare con la carta?',
+            translation: 'Posso pagar com cartão?',
+            isCorrect: true,
+          },
+          {
+            id: 'o3',
+            text: 'Non ho capito. Ripeta, per favore.',
+            translation: 'Não entendi. Repita, por favor.',
+            isCorrect: false,
+            feedback: 'A informação foi clara: plataforma 3, às 10h, 25 euros.',
+          },
+        ],
+      },
+      {
+        id: 's4',
+        npcMessage: 'Ecco il biglietto! Buon viaggio!',
+        npcTranslation: 'Aqui está o bilhete! Boa viagem!',
+        options: [
+          {
+            id: 'o1',
+            text: 'Grazie mille! Arrivederci!',
+            translation: 'Muito obrigado! Tchau!',
+            isCorrect: true,
+          },
+          {
+            id: 'o2',
+            text: 'Grazie! Buona giornata!',
+            translation: 'Obrigado! Tenha um bom dia!',
+            isCorrect: true,
+          },
+          {
+            id: 'o3',
+            text: 'Dov\'è il treno?',
+            translation: 'Onde está o trem?',
+            isCorrect: false,
+            feedback: 'O atendente disse: plataforma três. Boa viagem!',
+          },
+        ],
+      },
+    ],
+  },
 ];

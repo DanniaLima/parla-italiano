@@ -1,6 +1,6 @@
-import { GraduationCap, MessageCircle, Home } from 'lucide-react';
+import { GraduationCap, MessageCircle, Home, Trophy } from 'lucide-react';
 
-export type Tab = 'home' | 'learn' | 'chat';
+export type Tab = 'home' | 'learn' | 'chat' | 'achievements';
 
 interface BottomNavProps {
   active: Tab;
@@ -11,6 +11,7 @@ const tabs: { id: Tab; label: string; icon: typeof Home }[] = [
   { id: 'home', label: 'Início', icon: Home },
   { id: 'learn', label: 'Lições', icon: GraduationCap },
   { id: 'chat', label: 'Conversa', icon: MessageCircle },
+  { id: 'achievements', label: 'Medalhas', icon: Trophy },
 ];
 
 export function BottomNav({ active, onChange }: BottomNavProps) {
@@ -23,7 +24,7 @@ export function BottomNav({ active, onChange }: BottomNavProps) {
             <button
               key={id}
               onClick={() => onChange(id)}
-              className={`flex flex-col items-center gap-0.5 px-4 py-2 rounded-xl transition-all duration-200 ${
+              className={`flex flex-col items-center gap-0.5 px-3 py-2 rounded-xl transition-all duration-200 ${
                 isActive
                   ? 'text-italy-green-700 scale-105'
                   : 'text-gray-400 hover:text-italy-green-500'

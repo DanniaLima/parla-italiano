@@ -1,4 +1,4 @@
-import { Sparkles, ArrowRight, Flame, BookOpen, MessageCircle } from 'lucide-react';
+import { Sparkles, ArrowRight, Flame, BookOpen, MessageCircle, Trophy } from 'lucide-react';
 import type { Lesson } from '../types';
 import type { Progress } from '../hooks/useProgress';
 import { getLevelInfo } from '../hooks/useProgress';
@@ -8,6 +8,8 @@ interface HomeScreenProps {
   progress: Progress;
   lessons: Lesson[];
   completedScenariosCount: number;
+  unlockedAchievements: number;
+  totalAchievements: number;
   onStartLearning: () => void;
   onStartChat: () => void;
   onTabChange: (tab: Tab) => void;
@@ -18,6 +20,8 @@ export function HomeScreen({
   progress,
   lessons,
   completedScenariosCount,
+  unlockedAchievements,
+  totalAchievements,
   onStartLearning,
   onStartChat,
   onTabChange,
@@ -67,21 +71,26 @@ export function HomeScreen({
           </div>
 
           {/* Quick stats */}
-          <div className="grid grid-cols-3 gap-3 mt-4">
+          <div className="grid grid-cols-4 gap-2 sm:gap-3 mt-4">
             <div className="bg-white/15 backdrop-blur-sm rounded-xl p-3 text-center border border-white/20">
               <Flame className="h-5 w-5 text-orange-300 mx-auto mb-1" fill="currentColor" />
               <p className="font-display font-bold text-xl tabular-nums">{progress.streak}</p>
-              <p className="text-[11px] text-italy-green-100 font-semibold">dias seguidos</p>
+              <p className="text-[10px] sm:text-[11px] text-italy-green-100 font-semibold">dias</p>
             </div>
             <div className="bg-white/15 backdrop-blur-sm rounded-xl p-3 text-center border border-white/20">
               <BookOpen className="h-5 w-5 text-italy-green-100 mx-auto mb-1" fill="currentColor" />
               <p className="font-display font-bold text-xl tabular-nums">{completedCount}/{lessons.length}</p>
-              <p className="text-[11px] text-italy-green-100 font-semibold">lições</p>
+              <p className="text-[10px] sm:text-[11px] text-italy-green-100 font-semibold">lições</p>
             </div>
             <div className="bg-white/15 backdrop-blur-sm rounded-xl p-3 text-center border border-white/20">
               <MessageCircle className="h-5 w-5 text-italy-green-100 mx-auto mb-1" fill="currentColor" />
               <p className="font-display font-bold text-xl tabular-nums">{completedScenariosCount}</p>
-              <p className="text-[11px] text-italy-green-100 font-semibold">conversas</p>
+              <p className="text-[10px] sm:text-[11px] text-italy-green-100 font-semibold">conversas</p>
+            </div>
+            <div className="bg-white/15 backdrop-blur-sm rounded-xl p-3 text-center border border-white/20">
+              <Trophy className="h-5 w-5 text-amber-300 mx-auto mb-1" fill="currentColor" />
+              <p className="font-display font-bold text-xl tabular-nums">{unlockedAchievements}/{totalAchievements}</p>
+              <p className="text-[10px] sm:text-[11px] text-italy-green-100 font-semibold">medalhas</p>
             </div>
           </div>
         </div>
@@ -118,6 +127,24 @@ export function HomeScreen({
             <h3 className="font-display font-bold text-italy-green-800">Simular conversa</h3>
             <p className="text-sm text-italy-green-500">
               Pratique diálogos do dia a dia na Itália
+            </p>
+          </div>
+          <ArrowRight className="h-5 w-5 text-italy-green-400 group-hover:translate-x-1 transition-transform" />
+        </button>
+
+        <button
+          onClick={() => onTabChange('achievements')}
+          className="group w-full flex items-center gap-4 rounded-2xl bg-white shadow-lg border border-italy-green-100 p-4 text-left mt-3 hover:shadow-xl hover:scale-[1.02] active:scale-95 transition-all"
+        >
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-400 to-amber-500 text-white shadow-md">
+            <Trophy className="h-7 w-7" fill="currentColor" />
+          </div>
+          <div className="flex-1">
+            <h3 className="font-display font-bold text-italy-green-800">Suas conquistas</h3>
+            <p className="text-sm text-italy-green-500">
+              {unlockedAchievements === 0
+                ? 'Nenhuma medalha ainda. Comece a aprender!'
+                : `${unlockedAchievements} de ${totalAchievements} medalhas desbloqueadas`}
             </p>
           </div>
           <ArrowRight className="h-5 w-5 text-italy-green-400 group-hover:translate-x-1 transition-transform" />
